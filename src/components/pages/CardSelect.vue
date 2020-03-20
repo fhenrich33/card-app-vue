@@ -60,7 +60,6 @@ export default {
 
           this.$router.push("/pile-info");
         } catch (error) {
-          console.error(error);
           this.loading = false;
           alert(
             "We couldn't finish setting up your cards, are you offline? 🔌"
