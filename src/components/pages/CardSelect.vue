@@ -76,9 +76,9 @@ export default {
   <div>
     <app-header>Cards</app-header>
     <form @submit="checkForm" novalidate="true">
-      <h3 v-if="errors.length">
+      <h3 class="error-message-header" v-if="errors.length">
         <b>Please correct the following error(s):</b>
-        <ul>
+        <ul class="error-message">
           <li :key="error" v-for="error in errors">{{ error }}</li>
         </ul>
       </h3>
@@ -93,11 +93,12 @@ export default {
           </li>
         </ul>
       </div>
-      <div>
+      <div class="rotation-card">
         <h1>Rotation Card</h1>
         <card-input :card="rotationCard"></card-input>
       </div>
       <input
+        class="submit"
         type="submit"
         :value="loading ? 'Loading...' : 'Submit'"
         :disabled="loading"
@@ -106,4 +107,64 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+input,
+button,
+submit {
+  border: none;
+}
+form {
+  max-width: 1050px;
+  margin: auto;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+li {
+  margin: 20px 0px;
+  flex: 0 0 20%;
+  list-style-type: none;
+}
+.error-message-header {
+  margin: 30px 0px;
+  animation: fadein 2s;
+}
+.error-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadein 2s;
+}
+.rotation-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0px;
+}
+.rotation-card h1 {
+  margin: 0 15px;
+}
+.submit {
+  font-family: inherit;
+  background: #1c0063;
+  color: #fbe500;
+  font-size: 30px;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 10px 50px;
+}
+.submit:active {
+  background: #471eaf;
+}
+@keyframes fadein {
+  from {
+    color: red;
+  }
+  to {
+    opacity: black;
+  }
+}
+</style>
