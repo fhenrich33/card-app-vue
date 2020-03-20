@@ -1,3 +1,5 @@
-module.exports = {
-  publicPath: "/card-app-vue/"
-};
+/** uncomment this for gh-pages */
+
+// module.exports = {
+//   publicPath: "/card-app-vue/"
+// };
