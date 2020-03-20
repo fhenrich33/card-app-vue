@@ -1,5 +1,9 @@
 # Deckofcards Vue App
 
+Small demo web app that interacts with https://deckofcardsapi.com/ made with VueJS.
+
+> You need NodeJS 12+, NPM (or Yarn) and Docker to run the following commands.
+
 ## Project setup
 
 ```
