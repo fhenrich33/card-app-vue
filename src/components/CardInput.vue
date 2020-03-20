@@ -40,6 +40,28 @@ export default {
 </template>
 
 <style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+label {
+  margin: 5px 5px;
+  color: #b1b1b1;
+  font-size: 12px;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+input[type="text"] {
+  width: 200px;
+  height: 35px;
+  margin: 0px 5px;
+  padding: 5px;
+  background: white;
+  border: solid 1px #ced2e0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #ddd;
+}
 .error {
   border: 2px solid red !important;
 }
