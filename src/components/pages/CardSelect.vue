@@ -9,7 +9,7 @@ export default {
     "app-header": AppHeader,
     "card-input": CardInput
   },
-  data: function() {
+  data() {
     return {
       loading: false,
       errors: [],
