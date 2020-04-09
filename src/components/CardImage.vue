@@ -6,7 +6,7 @@ export default {
       type: String,
       required: true,
       validator: function(value) {
-        return /[\d|AKQJ][HDCS]/.test(value);
+        return /[345678920|AKQJ][HDCS]/.test(value);
       }
     }
   },
@@ -25,7 +25,8 @@ export default {
         H: true
       },
       convertCardCode(card) {
-        return card[0] === "0" ? "10" : card[0] + " " + this.suitEnum[card[1]];
+        const rank = card[0] === "0" ? "10" : card[0];
+        return rank + " " + this.suitEnum[card[1]];
       }
     };
   }
