@@ -1,6 +1,5 @@
 <script>
-import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
-import { PICK_CARDS } from "@/store/types";
+import { mapState, mapGetters, mapActions } from "vuex";
 import AppHeader from "@/components/AppHeader.vue";
 import CardImage from "@/components/CardImage.vue";
 
@@ -15,15 +14,10 @@ export default {
     ...mapGetters(["sortedPile", "highestCard", "fullHouseCombo"])
   },
   methods: {
-    ...mapMutations([PICK_CARDS]),
     ...mapActions(["getFromPile"])
   },
-  async created() {
-    const pileRes = await this.getFromPile();
-    const cards = pileRes.data.piles.my_little_pile.cards.map(
-      cards => cards.code
-    );
-    this.PICK_CARDS(cards);
+  created() {
+    this.getFromPile(this.$route.params.deckId);
   }
 };
 </script>
