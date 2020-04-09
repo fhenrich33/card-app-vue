@@ -31,7 +31,7 @@ export default {
       @keyup="card.card = card.card.toUpperCase()"
       @blur="
         card.error = card.card.length
-          ? !/[\d|AKQJ][HDCS]/.test(card.card)
+          ? !/[345678920|AKQJ][HDCS]/.test(card.card)
           : false
       "
       :class="{ error: card.error }"
