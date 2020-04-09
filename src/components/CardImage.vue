@@ -25,7 +25,7 @@ export default {
         H: true
       },
       convertCardCode(card) {
-        return card[0] === 0 ? 10 : card[0] + " " + this.suitEnum[card[1]];
+        return card[0] === "0" ? "10" : card[0] + " " + this.suitEnum[card[1]];
       }
     };
   }
