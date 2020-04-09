@@ -1,6 +1,5 @@
 import {
   PICK_ROTATION_CARD,
-  SET_DECK_ID,
   PICK_CARDS,
   REORDER_WITH_ROTATION_CARD,
   STACK_DECK
@@ -9,8 +8,6 @@ import {
 export default {
   [PICK_ROTATION_CARD]: (state, rotationCard) =>
     (state.rotationCard = rotationCard),
-
-  [SET_DECK_ID]: (state, deckId) => (state.deckId = deckId),
 
   [PICK_CARDS]: (state, cards) => (state.pickedCards = cards),
 

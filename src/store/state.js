@@ -1,6 +1,5 @@
 export default {
   deck: [],
-  deckId: "",
   rotationCard: "",
   pickedCards: [],
   suits: ["S", "C", "D", "H"], // '♠︎ ♣︎ ♦ ♥︎'

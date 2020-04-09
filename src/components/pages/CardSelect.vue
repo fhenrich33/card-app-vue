@@ -29,7 +29,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["newDeck", "addToPile"]),
+    ...mapActions(["newDeck"]),
     checkForm: async function(e) {
       e.preventDefault();
       this.errors = [];
@@ -54,11 +54,15 @@ export default {
           .filter(c => c.length)
           .toString();
 
-        try {
-          await this.newDeck(this.rotationCard.card);
-          await this.addToPile(cards);
+        let deckId;
 
-          this.$router.push("/pile-info");
+        try {
+          deckId = await this.newDeck({
+            cards,
+            rotationCard: this.rotationCard.card
+          });
+
+          this.$router.push(`/pile-info/${deckId}`);
         } catch (error) {
           this.loading = false;
           alert(

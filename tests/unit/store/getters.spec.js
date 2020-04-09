@@ -18,11 +18,13 @@ describe("Getters", () => {
       "3C"
     ]);
   });
+
   it("gets the highest card of the user's pile based on the deck order", () => {
     expect(
       getters.highestCard(null, { sortedPile: getters.sortedPile(state) })
     ).toBe("2H");
   });
+
   it("gets all possible full houses from user pile", () => {
     expect(getters.fullHouseCombo(state)).toStrictEqual(fullHouseResults);
   });

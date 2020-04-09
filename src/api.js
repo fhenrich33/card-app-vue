@@ -2,7 +2,6 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://deckofcardsapi.com/api/deck",
-  withCredentials: false,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json"
@@ -12,8 +11,20 @@ const api = axios.create({
 export default {
   newDeck: () => api.get(`/new/draw/?count=52`), //drawing all cards on the api so I can add then to the pile
 
-  addToPile: (deckId, cards) =>
-    api.get(`/${deckId}/pile/my_little_pile/add/?cards=${cards}`),
+  // for some ungodly reason baseURL does not get iterpolated as expected from this point forwards
+  addCardsToPile: (deckId, cards) =>
+    api.get(
+      `${api.defaults.baseURL}/${deckId}/pile/user_cards/add/?cards=${cards}`
+    ),
 
-  getFromPile: deckId => api.get(`/${deckId}/pile/my_little_pile/list/`)
+  addRotationCardToPile: (deckId, rotationCard) =>
+    api.get(
+      `${api.defaults.baseURL}/${deckId}/pile/rotation_card/add/?cards=${rotationCard}`
+    ),
+
+  getCardsFromPile: deckId =>
+    api.get(`${api.defaults.baseURL}/${deckId}/pile/user_cards/list/`),
+
+  getRotationCardFromPile: deckId =>
+    api.get(`${api.defaults.baseURL}/${deckId}/pile/rotation_card/list/`)
 };

@@ -11,11 +11,8 @@ const routes = [
     component: CardSelect
   },
   {
-    path: "/pile-info",
+    path: "/pile-info/:deckId",
     name: "PileInfo",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(
         /* webpackChunkName: "pile-info" */ "../components/pages/PileInfo.vue"
