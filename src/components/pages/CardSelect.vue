@@ -48,12 +48,7 @@ export default {
 
       if (!this.errors.length) {
         this.loading = true;
-
-        const cards = this.cards
-          .map(c => c.card)
-          .filter(c => c.length)
-          .toString();
-
+        const cards = this.cards.map(c => c.card).filter(c => c.length);
         let deckId;
 
         try {
