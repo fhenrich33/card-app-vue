@@ -6,11 +6,11 @@ export default {
       type: String,
       required: true,
       validator: function(value) {
-        return /[2-9|AKQJ][HDCS]|(10)[HDCS]/.test(value);
+        return /[\d|AKQJ][HDCS]/.test(value);
       }
     }
   },
-  data: function() {
+  data() {
     return {
       suitEnum: {
         S: "♠️",
@@ -23,6 +23,9 @@ export default {
         C: false,
         D: true,
         H: true
+      },
+      convertCardCode(card) {
+        return card[0] === 0 ? 10 : card[0] + " " + this.suitEnum[card[1]];
       }
     };
   }
@@ -32,10 +35,10 @@ export default {
 <template>
   <div class="card">
     <div class="top" :class="{ red: suitColor[card[1]] }">
-      {{ card[0] + " " + suitEnum[card[1]] }}
+      {{ convertCardCode(card) }}
     </div>
     <div class="down" :class="{ red: suitColor[card[1]] }">
-      {{ card[0] + " " + suitEnum[card[1]] }}
+      {{ convertCardCode(card) }}
     </div>
   </div>
 </template>
