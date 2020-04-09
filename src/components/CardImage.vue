@@ -6,7 +6,7 @@ export default {
       type: String,
       required: true,
       validator: function(value) {
-        return /[\d|AKQJ][HDCS]/.test(value);
+        return /[2-9|AKQJ][HDCS]|(10)[HDCS]/.test(value);
       }
     }
   },
