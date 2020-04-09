@@ -6,7 +6,7 @@ const state = {
   pickedCards: [],
   rotationCard: "",
   suits: ["S", "C", "D", "H"],
-  ranks: ["3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2"]
+  ranks: ["3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K", "A", "2"]
 };
 
 describe("Mutations", () => {
@@ -33,7 +33,7 @@ describe("Mutations", () => {
     const { suits, ranks } = state;
     expect({ suits, ranks }).toStrictEqual({
       suits: ["D", "H", "S", "C"],
-      ranks: ["7", "8", "9", "10", "J", "Q", "K", "A", "2", "3", "4", "5", "6"]
+      ranks: ["7", "8", "9", "0", "J", "Q", "K", "A", "2", "3", "4", "5", "6"]
     });
   });
 
