@@ -25,13 +25,13 @@ export default {
       v-model="card.card"
       type="text"
       name="card"
-      size="3"
-      maxlength="3"
+      size="2"
+      maxlength="2"
       placeholder="Enter card"
       @keyup="card.card = card.card.toUpperCase()"
       @blur="
         card.error = card.card.length
-          ? !/[2-9|AKQJ][HDCS]|(10)[HDCS]/.test(card.card)
+          ? !/[\d|AKQJ][HDCS]/.test(card.card)
           : false
       "
       :class="{ error: card.error }"
